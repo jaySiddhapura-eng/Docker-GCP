@@ -40,4 +40,3 @@ A tool for defining and running multi-container Docker applications. With Compos
 ### GCP VM Instance
 -   For this tutorial we will use GCP VM instance as our machine, on this machine we will install the docker engine and try different commands
 - Create the VM instance on GCP 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
