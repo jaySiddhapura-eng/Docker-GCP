@@ -39,5 +39,4 @@ A tool for defining and running multi-container Docker applications. With Compos
 
 ### GCP VM Instance
 -   For this tutorial we will use GCP VM instance as our machine, on this machine we will install the docker engine and try different commands
-- Create the VM instance on GCP 
-![VM instance](./assets/vm_Instance-Loc.png)
+-   Prerequisit : Create the VM instance on GCP 
