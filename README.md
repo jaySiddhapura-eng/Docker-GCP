@@ -175,6 +175,73 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 -   ```docker run``` : create a new container using the image
 -   ```docker start``` : start the already existing/created container 
 
-## Working with Real project 
+## Working with Real projects 
+### Setting up mongoDB and mongo Express Containers
+-   Docker network: Docker networks allow containers to communicate with each other, and with the outside world, in an isolated and controlled manner.
+    By default, Docker creates three types of networks: Bridge Network, Host Network, Overlay Network. Inside isolated docker network containers communicate with each other using just container name.
+-   To see available docker network:  
+```sh 
+sudo docker network ls
+```
+-   To create new network : 
+```sh
+sudo docker network create [Mongo network]
+```
+-   Pull the mongo and mongo express[UI for mongo database] images as follow
+```sh
+sudo docker pull mongo
+sudo docker pull mongo-express
+```
+-   Run mongo image with custom parameters [environmental variables]
+```sh
+sudo docker run -d \
+ -p 27017:27017 \
+  -e MONGO_INITDB_ROOT_USERNAME=admin \
+  -e MONGO_INITDB_ROOT_PASSWORD=password \
+  --name mongodb \
+  --net mongo-network  \
+  mongo
+```
+
+-   In above command, 
+```
+-d : detached mode, 
+-p : to connect the host[27017] and mongo container port[27017], 
+-e : environment variable for mongodb container, 
+--name : to provide the name for container, 
+--net : to connect the container to the specific network.
+```
+
+-   Run mongo-express container [UI for mongoDB] and connect the mongo express with mongoDB
+
+```sh
+sudo docker run -d \
+  -p 8081:8081 \
+  -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+  -e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+  -e ME_CONFIG_MONGODB_SERVER=mongodb \
+  -e depends_on=mongo \
+  --name mongo-express \
+  --net mongo-network  \
+  mongo-express
+```
+-   In above command, 
+```
+-d : detached mode, 
+-p : to connect the host[8081] and mongo container port[8081], 
+-e : environment variable for mongodb container, 
+ME_CONFIG_MONGODB_SERVER: name of mongoDB container
+--name : to provide the name for container, 
+--net : to connect the container to the specific network.
+```
+
+sudo docker run -d -p 8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password -e ME_CONFIG_MONGODB_SERVER=mongodb -e depends_on: - mongo --name mongo-express \
+  --net mongo-network  \
+  mongo-express
+
+
 -   For this section we will use following Angular project, which is simple angular routing demo
 -   https://github.com/jaySiddhapura-eng/Angular-Routing-Navigation-extra/tree/main/src
+
+    ![PATH](./assets/Screenshot%202024-06-06%20154228.png)
+-   
