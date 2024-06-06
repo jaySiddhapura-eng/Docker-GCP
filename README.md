@@ -155,5 +155,26 @@ c00ce3c0d75b   redis  "docker-entrypoint.s…"   8 minutes ago   Up 8 minutes   
 ```
 
 ## Debugging a container
-todo create a cheat sheet for commands
+-   To get the logs of perticular container
+```sh
+docker logs [CONTAINER ID] 
+or
+docker logs [container name]
+```
+-   To provide custom container name
+```sh
+sudo docker run --name [customName nameOfImage]
+```
+-   Get the terminal of particular container [accessing the container]
+```sh
+sudo docker exec -it [CONTAINER ID] /bin/bash 
+or
+sudo docker exec -it [CONTAINER Name] /bin/bash
+```
+-   ```exit``` to exit the terminal
+-   ```docker run``` : create a new container using the image
+-   ```docker start``` : start the already existing/created container 
 
+## Working with Real project 
+-   For this section we will use following Angular project, which is simple angular routing demo
+-   https://github.com/jaySiddhapura-eng/Angular-Routing-Navigation-extra/tree/main/src
