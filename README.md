@@ -209,7 +209,7 @@ sudo docker run -d \
 ```
 
 ## Docker compose
-
+## Cloud store = GCP Docker engine 
 
     ![PATH](./assets/Screenshot%202024-06-06%20154228.png)
 -   
