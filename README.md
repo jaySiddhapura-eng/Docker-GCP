@@ -175,40 +175,17 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 -   ```docker run``` : create a new container using the image
 -   ```docker start``` : start the already existing/created container 
 
-## Working with Real projects [this section will probably be gone] 
-### Setting up mongoDB Containers with parameters
-sudo docker network ls
-```
--   To create new network : 
-```sh
-sudo docker network create [Mongo network]
-```
--   Pull the mongo and mongo express[UI for mongo database] images as follow
-```sh
-sudo docker pull mongo
-sudo docker pull mongo-express
-```
--   Run mongo image with custom parameters [environmental variables]
-```sh
-sudo docker run -d \
- -p 27017:27017 \
-  -e MONGO_INITDB_ROOT_USERNAME=admin \
-  -e MONGO_INITDB_ROOT_PASSWORD=password \
-  --name mongodb \
-  --net mongo-network  \
-  mongo
-```
+## Docker compose vs. Docker File
 
--   In above command, 
-```
--d : detached mode, 
--p : to connect the host[27017] and mongo container port[27017], 
--e : environment variable for mongodb container, 
---name : to provide the name for container, 
---net : to connect the container to the specific network.
-```
+### Docker File
 
-## Docker compose
+image
+ ![dfile](./assets/dockerfile.jpg)
+
+### Docker compose 
+
+![compose](./assets/dockerCompose.png)
+
 ## Cloud store = GCP Docker engine 
 
     ![PATH](./assets/Screenshot%202024-06-06%20154228.png)
