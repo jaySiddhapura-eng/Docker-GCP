@@ -187,6 +187,8 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 -   In such case, it become extremely tedious and time consuming to start it one by one, therefore Docker compose is used.
 -   Docker compose basically executes the container startup as a service mentioned in a compose file. so by executing one file we can start all the containers mentioned in it.
 -   Docker compose take care of creating container network, so no need to specify `-net` tag for containers
+-   
+-   
 
 ## Cloud store = GCP Docker engine 
 
