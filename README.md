@@ -185,10 +185,46 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 ![compose](./assets/dockerCompose.png)
 -   Consider you have 10 containers to start, each container need various configurations such as network, env. variables etc. 
 -   In such case, it become extremely tedious and time consuming to start it one by one, therefore Docker compose is used.
--   Docker compose basically executes the container startup as a service mentioned in a compose file. so by executing one file we can start all the containers mentioned in it.
+-   Docker compose basically executes the container startup as a service mentioned in a compose file. so by executing one file we can start all the
+    containers mentioned in it.
 -   Docker compose take care of creating container network, so no need to specify `-net` tag for containers
--   
--   
+
+-   ```sh
+    sample GPT promp, which creates the docker compose file
+    create a docker compose file, where there are two services 
+    1. mongoDb
+    2. mongo express
+    MongoDb port need to be bind with the host port 1000 and mongo Express port need to be binded with 2000.
+    There must be provision for admin credentials, this must be connected between mongoDB and Mongo express.
+    ```
+-   Content and structure of any docker file is as follow ! [check sample compose files in the repo]
+-   ```services``` : Defines the services (containers) that make up your application. Each service will have its own set of configurations.
+-   ```
+    services:
+      web: [container 1]
+        -- configurations related to container/service 1 will come here
+      db: [container 2]
+        -- configurations related to container/service 2 will come here
+    ```
+-   ```image``` : Specifies the Docker image to use for the service. It can be an image from Docker Hub or a custom-built image.
+-   ```
+      services:
+        web:
+          image: nginx:latest [image from dockerhub]
+        db:
+          image: mysql  [image from docker hub]
+    ```
+-   ```build``` : Specifies build configuration for creating an image from a Dockerfile. You can specify the context (directory) and optionally a 
+    Dockerfile. In previous point, both the images are pulled from docker hub, where as build is use when custom image is being used instead of iamge from
+    dockerhub.
+-   ```
+    services:
+      web:
+        build:
+          context: ./path/to/dir  [location of dockerfile]
+          dockerfile: Dockerfile  [name of dockerfile]
+    ```
+
 
 ## Cloud store = GCP Docker engine 
 
