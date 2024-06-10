@@ -198,6 +198,7 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
     There must be provision for admin credentials, this must be connected between mongoDB and Mongo express.
     ```
 -   Content and structure of any docker file is as follow ! [check sample compose files in the repo]
+
 -   ```services``` : Defines the services (containers) that make up your application. Each service will have its own set of configurations.
 -   ```
     services:
@@ -206,6 +207,7 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
       db: [container 2]
         -- configurations related to container/service 2 will come here
     ```
+
 -   ```image``` : Specifies the Docker image to use for the service. It can be an image from Docker Hub or a custom-built image.
 -   ```
       services:
@@ -214,6 +216,7 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
         db:
           image: mysql  [image from docker hub]
     ```
+
 -   ```build``` : Specifies build configuration for creating an image from a Dockerfile. You can specify the context (directory) and optionally a 
     Dockerfile. In previous point, both the images are pulled from docker hub, where as build is use when custom image is being used instead of iamge from
     dockerhub.
@@ -224,6 +227,127 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
           context: ./path/to/dir  [location of dockerfile]
           dockerfile: Dockerfile  [name of dockerfile]
     ```
+-   ```ports``` : Exposes ports on the container. Maps a host port to a container port.
+-   ```
+      services:
+        web:
+          ports:
+            - "8080:80" [8080 is host port and 80 is a container port]
+    ```
+
+-   ```volumes``` : Mounts host paths or named volumes, allowing data to persist or be shared among services.
+-   ```
+      services:
+        db:
+          image: mysql
+        volumes:
+          - db_data:/var/lib/mysql
+      volumes:
+        db_data:
+    ```
+
+-   ```environment``` : In Docker Compose, the environment tag is used to define environment variables that are set inside the containers. These variables
+    can be used to configure the service, pass secrets, or set application-specific settings.
+-   ```
+      services:
+        db:
+          image: mysql
+          environment:
+            MYSQL_ROOT_PASSWORD: example  [format 1: Dictionary Format]
+            - VARIABLE1=value1  [format 2: List Format]
+    ```
+
+-   ```networks``` :
+    as
+-   ```
+      services:
+        web:
+          networks:
+            - front
+        db:
+          networks:
+            - back
+      networks:
+        front:
+        back:
+    ```
+-   ```depends_on``` : 
+    as
+-   ```
+      services:
+          web:
+            depends_on:
+                  - db
+          db:
+            image: mysql
+    ```
+-   ```command``` : 
+-   ```
+      services:
+          web:
+            image: nginx
+            command: nginx -g 'daemon off;'
+    ```
+-   ```entrypoint``` :
+-   ```
+      services:
+            web:
+              image: nginx
+              entrypoint: /docker-entrypoint.sh
+    ```
+-   ```restart``` :
+-   ```
+      services:
+          web:
+            image: nginx
+            restart: always
+    ```
+-   ```healthcheck``` :
+-   ```services:
+            web:
+            image: nginx
+            healthcheck:
+                test: ["CMD", "curl", "-f", "http://localhost"]
+                interval: 1m30s
+                timeout: 10s
+            retries: 3
+    ```
+-   ```labels``` :
+-   ```
+      services:
+          web:
+          image: nginx
+          labels:
+            com.example.description: "Web server"
+    ```
+-   ```secrets``` :
+-   ```
+      services:
+            db:
+              image: mysql
+            secrets:
+              - mysql_root_password
+            secrets:
+              mysql_root_password:
+            file: ./mysql_root_password.txt
+    ```
+-   ```configs``` :
+-   ```
+      services:
+          web:
+            image: nginx
+            configs:
+              - source: nginx_config
+              target: /etc/nginx/nginx.conf
+            configs:
+              nginx_config:
+            file: ./nginx.conf
+    ```
+
+
+
+
+
 
 
 ## Cloud store = GCP Docker engine 
