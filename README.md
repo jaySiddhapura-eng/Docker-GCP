@@ -178,11 +178,25 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 ## Docker compose vs. Docker File
 
 ### Docker File
- ![dfile](./assets/dockerfile.jpg)
--   
+ <img src="./assets/dockerfile.jpg" width=50% height=50%></img>
 
-### Docker compose 
-![compose](./assets/dockerCompose.png)
+-   A Dockerfile is a text file that
+    contains a series of instructions used to build a Docker image. Each instruction in a Dockerfile creates a layer in the image, which can then be deployed and run in a Docker container. Dockerfiles enable users to automate the creation of Docker images, ensuring consistency and reproducibility.
+-   Dockerfile basically bundles the executables of ur app, combine it with necessary environment on the top of the base image. finally this bundle
+    is deployed in a docker container.
+-   name of Dockerfile never changes
+
+-   ```FROM``` : keyword to use the base
+    image in ur docker file.
+-   ```ENV``` : Optionally define
+    environment variables
+-   ```RUN``` : Execute any Linux command INSIDE the container. dockerfile can have multiple RUN Commands
+-   ```COPY``` : Execute copy operation on HOST machine. 
+-   ```CMD``` : Execute startup/entrypoint commands. eng [ng serve]. only one CMD in a dockerfile.
+
+### Docker compose [config file to orchestrate multiple container startup]
+<img src="./assets/dockerCompose.png" width=50% height=50%></img>
+
 -   Consider you have 10 containers to start, each container need various configurations such as network, env. variables etc. 
 -   In such case, it become extremely tedious and time consuming to start it one by one, therefore Docker compose is used.
 -   Docker compose basically executes the container startup as a service mentioned in a compose file. so by executing one file we can start all the
@@ -257,8 +271,9 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
             - VARIABLE1=value1  [format 2: List Format]
     ```
 
--   ```networks``` :
-    as
+-   ```networks``` : Define custom networks and specify how services are
+    connected to those networks. Networks in Docker Compose allow you to control the communication between different services and to isolate them from each other when necessary. If two services are having same network, then this services can communicate with each other by using their names. By using the networks tag, you can manage service communication, improve security by isolating services.
+    
 -   ```
       services:
         web:
@@ -271,8 +286,8 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
         front:
         back:
     ```
--   ```depends_on``` : 
-    as
+-   ```depends_on``` : Specifies dependencies between services, indicating the order of
+    service startup. In example snippet, the db service will start first, even though web service is declared first. 
 -   ```
       services:
           web:
@@ -281,28 +296,30 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
           db:
             image: mysql
     ```
--   ```command``` : 
+-   ```command``` : It is used to override the default command specified by the Docker
+    image. This can be useful for customizing the behavior of your services or running specific commands at container startup.
 -   ```
       services:
           web:
             image: nginx
             command: nginx -g 'daemon off;'
     ```
--   ```entrypoint``` :
+-   ```entrypoint``` : is used to override the default entrypoint of a Docker image. The
+    entrypoint is the initial command that gets executed when a container is started. It is specified in the Dockerfile of the image and can be overridden in the Docker Compose file. The entrypoint is useful for specifying the main executable or script that runs within the container.
 -   ```
       services:
             web:
               image: nginx
               entrypoint: /docker-entrypoint.sh
     ```
--   ```restart``` :
+-   ```restart``` : Configures the restart policy for the service.
 -   ```
       services:
           web:
             image: nginx
-            restart: always
+            restart: always | no | on-failure | unless-stopped
     ```
--   ```healthcheck``` :
+-   ```healthcheck``` : Defines a health check to determine if the service is healthy.
 -   ```services:
             web:
             image: nginx
@@ -312,7 +329,7 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
                 timeout: 10s
             retries: 3
     ```
--   ```labels``` :
+-   ```labels``` : Adds metadata to the service in the form of key-value pairs.
 -   ```
       services:
           web:
@@ -320,7 +337,7 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
           labels:
             com.example.description: "Web server"
     ```
--   ```secrets``` :
+-   ```secrets``` : Defines and manages sensitive data such as passwords or API keys.
 -   ```
       services:
             db:
@@ -331,7 +348,8 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
               mysql_root_password:
             file: ./mysql_root_password.txt
     ```
--   ```configs``` :
+-   ```configs``` : Allows you to configure configuration data that can be shared among
+    services.
 -   ```
       services:
           web:
@@ -346,7 +364,16 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 
 
 
+## Practical example
 
+  ### Deploying the container locally
+  -   In this exercise, we will build an image of an angular app(which is already built and running locally) using dockerfile and run it in locally installed docker engine. 
+
+  ### Publish the container image as an artifact in to private repository [GCP repository]
+
+  ### Pull the published image into cloud store and run the container in gcp cloud store
+
+  ### Automate the entire process using jenkins
 
 
 
