@@ -373,7 +373,7 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 
   ### Pull the published image into cloud store and run the container in gcp cloud store
 
-  ### Automate the entire process using jenkins
+  ### Automate the entire process using google cloud build
 
 
 
