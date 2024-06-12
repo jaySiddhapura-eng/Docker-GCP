@@ -48,9 +48,6 @@ A tool for defining and running multi-container Docker applications. With Compos
 
 ## Docker Engine installation
 
-### GCP VM Instance
--   For this tutorial we will use GCP VM instance as our machine, on this machine we will install the docker engine and try different commands
--   Prerequisit : Create the VM instance on GCP, ssh into the instance
 -   Run the following command to uninstall all conflicting packages [ignore if docker never installed on machine]
 ```sh
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -193,6 +190,7 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 -   ```RUN``` : Execute any Linux command INSIDE the container. dockerfile can have multiple RUN Commands
 -   ```COPY``` : Execute copy operation on HOST machine. 
 -   ```CMD``` : Execute startup/entrypoint commands. eng [ng serve]. only one CMD in a dockerfile.
+-   To build using dockerfile : ```docker build -t [name_for_image]:[tag_for_image] .``` ```.``` is about path of dockerfile, since dockerfile and project file most of the time stays in same location plus build command is executed in the same directory, therefore ```.``` is used. 
 
 ### Docker compose [config file to orchestrate multiple container startup]
 <img src="./assets/dockerCompose.png" width=50% height=50%></img>
@@ -368,6 +366,18 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 
   ### Deploying the container locally
   -   In this exercise, we will build an image of an angular app(which is already built and running locally) using dockerfile and run it in locally installed docker engine. 
+  -   App Repo : https://github.com/jaySiddhapura-eng/Angular-Routing-Navigation-extra
+  -   Clone the repo and make sure app is running locally without any containerization, instructions are in readme of the project
+  -   Repo containe a Dockerfile which is responsible for creating the container image
+  -   Link for Dockerfile : https://github.com/jaySiddhapura-eng/Angular-Routing-Navigation-extra/blob/main/Dockerfile
+  -   make sure docker is installed locally and docker demon is up and running. 
+  -   to build the container image execute this command in ur project repository: ```docker build -t angular-route:1.0 .```
+  -   Check whether docker image is created successfully using ```docker images``` command
+  -   Run the image with ```docker run -d -p 4200:80 angular-route:1.0```
+  -   Navigate to the localhost port 4200 to access the application
+  -   What we just did - 
+  -   ![PATH](./assets/dockerfileUsage.png)
+
 
   ### Publish the container image as an artifact in to private repository [GCP repository]
 
