@@ -379,27 +379,27 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
   -   ![PATH](./assets/dockerfileUsage.png)
 
 
-  ### Build the Docker Image usign GCP's Cloud Build
-  ![PATH](./assets/gcp1.png)
-  ![PATH](./assets/gcp2.png)
-  ![PATH](./assets/gcp3.png)
-  ![PATH](./assets/gcp4.png)
-  ![PATH](./assets/gcp5.png)
-  ![PATH](./assets/gcp6.png)
-  ![PATH](./assets/gcp7.png)
-  ![PATH](./assets/gcp8.png)
-  ![PATH](./assets/gcp9.png)
+### Build the Docker Image using GCP's Cloud Build
+<img src="./assets/gcp1.png" alt="gcp1" width="50%" height="50%" />
+<img src="./assets/gcp2.png" alt="gcp2" width="50%" height="50%" />
+<img src="./assets/gcp3.png" alt="gcp3" width="50%" height="50%" />
+<img src="./assets/gcp4.png" alt="gcp4" width="50%" height="50%" />
+<img src="./assets/gcp5.png" alt="gcp5" width="50%" height="50%" />
+<img src="./assets/gcp6.png" alt="gcp6" width="50%" height="50%" />
+<img src="./assets/gcp7.png" alt="gcp7" width="50%" height="50%" />
+<img src="./assets/gcp8.png" alt="gcp8" width="50%" height="50%" />
+<img src="./assets/gcp9.png" alt="gcp9" width="50%" height="50%" />
 
+### Verify the image creation and storage in GCP's artifact registry
+<img src="./assets/gcp10.png" alt="gcp10" width="50%" height="50%" />
+<img src="./assets/gcp11.png" alt="gcp11" width="50%" height="50%" />
 
-  ### Verify the image creation and storage in GCP's artifact registry
-  ![PATH](./assets/gcp10.png)
-  ![PATH](./assets/gcp11.png)
-  
-  ### Run the Docker container using GCP's Cloud Run
-  ![PATH](./assets/gcp12.png)
-  ![PATH](./assets/gcp13.png)
-  ![PATH](./assets/gcp14.png)
-  ![PATH](./assets/gcp15.png)
-  ![PATH](./assets/gcp16.png)
-  ![PATH](./assets/gcp17.png)
+### Run the Docker container using GCP's Cloud Run
+<img src="./assets/gcp12.png" alt="gcp12" width="50%" height="50%" />
+<img src="./assets/gcp13.png" alt="gcp13" width="50%" height="50%" />
+<img src="./assets/gcp14.png" alt="gcp14" width="50%" height="50%" />
+<img src="./assets/gcp15.png" alt="gcp15" width="50%" height="50%" />
+<img src="./assets/gcp16.png" alt="gcp16" width="50%" height="50%" />
+<img src="./assets/gcp17.png" alt="gcp17" width="50%" height="50%" />
+
 
