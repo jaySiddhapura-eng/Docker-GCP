@@ -380,26 +380,26 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 
 
   ### Build the Docker Image usign GCP's Cloud Build
-  ![image](./assets/gcp1)
-  ![image](./assets/gcp2)
-  ![image](./assets/gcp3)
-  ![image](./assets/gcp4)
-  ![image](./assets/gcp5)
-  ![image](./assets/gcp6)
-  ![image](./assets/gcp7)
-  ![image](./assets/gcp8)
-  ![image](./assets/gcp9)
+  ![PATH](./assets/gcp1.png)
+  ![PATH](./assets/gcp2.png)
+  ![PATH](./assets/gcp3.png)
+  ![PATH](./assets/gcp4.png)
+  ![PATH](./assets/gcp5.png)
+  ![PATH](./assets/gcp6.png)
+  ![PATH](./assets/gcp7.png)
+  ![PATH](./assets/gcp8.png)
+  ![PATH](./assets/gcp9.png)
 
 
   ### Verify the image creation and storage in GCP's artifact registry
-  ![image](./assets/gcp10)
-  ![image](./assets/gcp11)
+  ![PATH](./assets/gcp10.png)
+  ![PATH](./assets/gcp11.png)
   
   ### Run the Docker container using GCP's Cloud Run
-  ![image](./assets/gcp12)
-  ![image](./assets/gcp13)
-  ![image](./assets/gcp14)
-  ![image](./assets/gcp15)
-  ![image](./assets/gcp16)
-  ![image](./assets/gcp17)
+  ![PATH](./assets/gcp12.png)
+  ![PATH](./assets/gcp13.png)
+  ![PATH](./assets/gcp14.png)
+  ![PATH](./assets/gcp15.png)
+  ![PATH](./assets/gcp16.png)
+  ![PATH](./assets/gcp17.png)
 
