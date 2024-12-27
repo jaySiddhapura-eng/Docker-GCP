@@ -380,26 +380,26 @@ sudo docker exec -it [CONTAINER Name] /bin/bash
 
 
   ### Build the Docker Image usign GCP's Cloud Build
-  ![image](./assets/ff768e62-4cda-4c34-ae0a-41d3235cce7a)
-  ![image](./assets/e31a7578-9f05-4b3e-9fdc-96d1f7d20204)
-  ![image](./assets/fb74e9c1-9418-4c3a-9836-fee61975e9c0)
-  ![image](./assets/9486af83-a4d5-45a7-af64-b7804ab59e0d)
-  ![image](./assets/14e2f12e-a3c7-4bb6-8dbc-c8f8ff9e7f8c)
-  ![image](./assets/c9ed8f95-bf69-4690-8196-a049e8e60104)
-  ![image](./assets/3190d04d-8891-4603-82c4-3880aa13d455)
-  ![image](./assets/8c6563be-8854-4daf-ab79-21c3526bf57a)
-  ![image](./assets/5dbc51be-8051-4ebb-8dc5-af33bfa9feb3)
+  ![image](./assets/gcp1)
+  ![image](./assets/gcp2)
+  ![image](./assets/gcp3)
+  ![image](./assets/gcp4)
+  ![image](./assets/gcp5)
+  ![image](./assets/gcp6)
+  ![image](./assets/gcp7)
+  ![image](./assets/gcp8)
+  ![image](./assets/gcp9)
 
 
   ### Verify the image creation and storage in GCP's artifact registry
-  ![image](./assets/f03bd42c-eb48-406a-8169-64b140f6d2ad)
-  ![image](./assets/69f97895-60af-4679-887d-aab0cd46c40a)
+  ![image](./assets/gcp10)
+  ![image](./assets/gcp11)
   
   ### Run the Docker container using GCP's Cloud Run
-  ![image](./assets/75da481c-1896-44fe-ba22-6a26197c8bd3)
-  ![image](./assets/cf1b91c8-8919-4a45-b665-a372a22e66d7)
-  ![image](./assets/f928938b-fc49-4295-b6cf-08d5ad140156)
-  ![image](./assets/524e8124-b371-41d4-bcfa-c23166ab1f61)
-  ![image](./assets/52a5a476-356e-4223-876b-341b83ecabe2)
-  ![image](./assets/6a29e911-00f4-494a-80bc-8b2c91280944)
+  ![image](./assets/gcp12)
+  ![image](./assets/gcp13)
+  ![image](./assets/gcp14)
+  ![image](./assets/gcp15)
+  ![image](./assets/gcp16)
+  ![image](./assets/gcp17)
 
